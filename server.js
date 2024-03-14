@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-import { put } from "@vercel/blob";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
