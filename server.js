@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Endpoint to catch all requests and save them to a file
-app.all('/save-request', async (req, res) => {
+app.all('/save-request', (req, res) => {
     const requestData = `
         Method: ${req.method}
         URL: ${req.protocol}://${req.get('host')}${req.originalUrl}
@@ -21,8 +21,8 @@ app.all('/save-request', async (req, res) => {
         Body: ${JSON.stringify(req.body, null, 2)}
     `;
 
-    const { url } = await put('requests/blob.txt', requestData, { access: 'public' });
-    res.send(url);
+    put('requests/blob.txt', requestData, { access: 'public' });
+    res.send("trying");
 });
 
 // Start the server
