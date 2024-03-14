@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-
+const {put} = require("@vercel/blob");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -12,14 +12,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Endpoint to catch all requests and save them to a file
-app.all('/save-request', (req, res) => {
+app.all('/save-request', async (req, res) => {
     const requestData = `
         Method: ${req.method}
         URL: ${req.protocol}://${req.get('host')}${req.originalUrl}
         Headers: ${JSON.stringify(req.headers, null, 2)}
         Body: ${JSON.stringify(req.body, null, 2)}
     `;
-
+    const { url } = await put('articles/blob.txt', requestData, { access: 'public' });
     res.send(requestData);
 });
 
