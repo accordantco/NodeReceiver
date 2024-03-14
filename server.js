@@ -20,16 +20,7 @@ app.all('/save-request', (req, res) => {
         Body: ${JSON.stringify(req.body, null, 2)}
     `;
 
-    // Save request data to a file
-    fs.writeFile('request_data.txt', requestData, (err) => {
-        if (err) {
-            console.error('Error saving request:', err);
-            res.status(500).send('Error saving request');
-            return;
-        }
-        console.log('Request data saved successfully');
-        res.send('Request data saved successfully');
-    });
+    res.send(requestData);
 });
 
 // Start the server
