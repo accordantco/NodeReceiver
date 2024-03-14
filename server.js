@@ -21,8 +21,7 @@ app.all('/save-request', (req, res) => {
         Body: ${JSON.stringify(req.body, null, 2)}
     `;
 
-    put('requests/blob.txt', requestData, { access: 'public' });
-    res.send("trying");
+    res.send(requestData);
 });
 
 // Start the server
