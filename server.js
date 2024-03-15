@@ -19,7 +19,7 @@ app.all('/save-request', async (req, res) => {
         Headers: ${JSON.stringify(req.headers, null, 2)}
         Body: ${JSON.stringify(req.body, null, 2)}
     `;
-    const { url } = await put('articles/blob.txt', requestData, { access: 'public' });
+    const { url } = await put('articles/blob.txt', requestData, { access: 'public', token: "vercel_blob_rw_Vr8jWMq7Dmphgbz7_WEjsirInc1SmLQFfCYstlTjz4QVNn2" });
     res.send(requestData);
 });
 
