@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 const { put } = require("@vercel/blob");
 const app = express();
