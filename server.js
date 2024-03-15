@@ -1,12 +1,9 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { put } from '@vercel/blob';
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const { put } = require("@vercel/blob");
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-export const config = {
-    runtime: 'edge',
-};
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());

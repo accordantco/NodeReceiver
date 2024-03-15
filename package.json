@@ -1,6 +1,4 @@
 {
-  "main": "server.js",
-  "type": "module",
   "dependencies": {
     "@vercel/blob": "^0.22.1",
     "body-parser": "^1.20.2",
